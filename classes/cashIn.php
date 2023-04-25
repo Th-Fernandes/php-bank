@@ -10,13 +10,16 @@ class CashIn {
     $this->depositedCpf = $depositedCpf;
   }
 
-  public function setBalanceDiff() {
+  public function setBalanceDiff(): string 
+  {
     $hasErros = $this->hasErrors();
 
     if(!$hasErros) {
       $GLOBALS['currentAccounts'][$this->depositorCpf]['balance'] -= $this->amount;
       $GLOBALS['currentAccounts'][$this->depositedCpf]['balance'] += $this->amount;
     }
+
+   return "depósito de R$$this->amount foi realizado com sucesso.";
   }
 
   private function hasErrors(): bool 
