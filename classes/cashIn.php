@@ -25,7 +25,7 @@ class CashIn {
   private function hasErrors(): bool 
   {
     $depositorBalance = $GLOBALS['currentAccounts'][$this->depositorCpf]['balance'];
-    if ($this->amount > $depositorBalance)throw new ErrorException('saldo do depositante é insuficiente');
+    if ($this->amount > $depositorBalance) throw new ErrorException('saldo do depositante é insuficiente');
     if($this->amount <= 0) throw new ErrorException('o depósito deve ser maior que zero.');
 
     return false;
